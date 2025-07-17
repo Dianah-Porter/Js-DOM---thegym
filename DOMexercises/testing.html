@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">Hello</h1>
+    <button id="changeTextBtn">Change Text</button>
+
+     <!-- 2. Change Background Color -->
+      <button id="bgColorBtn">Change Background</button>
+
+    <!-- 3. Toggle Visibility -->
+    <p id="secret">This is a secret message.</p>
+    <button id="toggleBtn">Hide/Show</button>
+
+        <!-- 4. Add Items to a List -->
+    <ul id="itemList">
+    <li>Item 1</li>
+    </ul>
+    <input type="text" id="newItem" placeholder="Enter new item" />
+    <button id="addItemBtn">Add Item</button>
+    <!-- 5. Remove an Element -->
+<div id="removeMe">Click the button to remove me</div>
+<button id="removeBtn">Remove Div</button>
+
+</body>
+<script>
+
+    const title = document.querySelector('#title');
+    const btn = document.querySelector('#changeTextBtn');
+    
+    btn.addEventListener('click', function(){
+        title.textContent ="Welcome to the DOM!";
+    });
+
+    const bgBtn = document.querySelector('#bgColorBtn');
+    bgBtn.addEventListener('click', function(){
+        document.body.style.backgroundColor = "lightblue";
+    });
+
+    const secret = document.querySelector('#secret');
+    const toggle = document.querySelector('#toggleBtn');
+    toggle.addEventListener('click', function(){
+        if(secret.style.display === "none"){
+            secret.style.display = "block";
+        }
+        else{
+            secret.style.display = "none";
+        } 
+    });
+
+    const itemList = document.querySelector('ul');
+    const input = document.querySelector('#newItem');
+    const button = document.querySelector('#addItemBtn');
+    button.addEventListener('click', function(){
+        const newItem = input.value;
+        const li = document.createElement('li');
+        li.append(newItem);
+        itemList.append(li);
+        input.value = "";
+    });
+
+    const remove = document.querySelector('#removeMe');
+     const butt = document.querySelector('#removeBtn');
+    butt.addEventListener('click', function(){
+        remove.remove();
+    });
+    
+
+    
+
+</script>
+</html>
